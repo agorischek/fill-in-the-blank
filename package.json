@@ -1,0 +1,16 @@
+{
+  "name": "fill-in-the-blank",
+  "version": "0.0.1",
+  "description": "Word generator",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "ts-node --esm ./dev/run.ts",
+    "test": "jest"
+  },
+  "author": "Alex Gorischek",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}
