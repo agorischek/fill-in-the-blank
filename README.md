@@ -34,6 +34,16 @@ const clothing = blank("hat", "shirt", "shorts", "shoes");
 const prompt = `What color ${clothing} should I wear?`;
 ```
 
+## Prompting
+
+To get more varied responses from a language model, you can include the `creativity` blank in the prompt, for example:
+
+```ts
+const prompt = "Write a poem." + creativity;
+```
+
+This will insert a variety of ideas that the model can use to guide its response. Note that the behavior will be highly dependent on your model, settings, and other prompt content, and getting desirable results will likely require iteration.
+
 ## Q&A
 
 ### Why do I need this?
