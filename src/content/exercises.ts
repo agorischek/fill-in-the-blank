@@ -1,0 +1,16 @@
+export const exercises = [
+  "biking",
+  "climbing",
+  "cycling",
+  "hiking",
+  "jumping",
+  "jogging",
+  "running",
+  "skating",
+  "skateboarding",
+  "skiing",
+  "snowboarding",
+  "surfing",
+  "swimming",
+  "walking",
+];

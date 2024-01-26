@@ -1,14 +1,10 @@
-import { blank, letter } from "../src/index.js";
+import {
+  animal,
+  emotion,
+  programmingLanguage,
+  profession,
+} from "../src/index.js";
 
-console.log(
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter(),
-  letter()
-);
+for (let i = 0; i < 10; i++) {
+  console.log(`Would a ${animal} make a good ${profession}?`);
+}

@@ -1,0 +1,17 @@
+export const appliances = [
+  "blender",
+  "coffee maker",
+  "dishwasher",
+  "dryer",
+  "electric kettle",
+  "freezer",
+  "iron",
+  "microwave",
+  "oven",
+  "refrigerator",
+  "slow cooker",
+  "stove",
+  "toaster",
+  "vacuum",
+  "washing machine",
+];
