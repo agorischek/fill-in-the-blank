@@ -6,11 +6,11 @@ export class Filler {
   state = new State();
   constructor(private options: string[]) {}
   build(): Blank {
-    const lambda = () => select(this.options, this.state);
-    const fn = function () {
-      return lambda();
+    const fn = () => select(this.options, this.state);
+    const blank = function () {
+      return fn();
     };
-    fn.toString = lambda;
-    return fn;
+    blank.toString = fn;
+    return blank;
   }
 }
