@@ -1,6 +1,6 @@
 {
   "name": "fill-in-the-blank",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Word generator",
   "main": "dist/index.js",
   "type": "module",
