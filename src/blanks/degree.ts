@@ -5,7 +5,7 @@ import { blank } from '../shared/blank.js';
  * @example
  * ```ts
  * `Write me a joke that's ${degree} funny`
- * // Write me a joke that's very funny
+ * // "Write me a joke that's very funny"
  * ```
  */
 export const degree = blank(...degrees);

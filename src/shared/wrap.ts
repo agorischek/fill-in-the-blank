@@ -1,4 +1,6 @@
-export function wrap(original: () => string) {
+import { Blank } from './blank.js';
+
+export function wrap(original: () => string): Blank {
   const wrapped = function () {
     return original();
   };
