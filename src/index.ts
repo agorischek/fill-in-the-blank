@@ -6,6 +6,7 @@ export { color } from "./blanks/color.js";
 export { degree } from "./blanks/degree.js";
 export { emotion } from "./blanks/emotion.js";
 export { exercise } from "./blanks/exercise.js";
+export { greeting } from "./blanks/greeting.js";
 export { letter } from "./blanks/letter.js";
 export { musicGenre } from "./blanks/musicGenre.js";
 export { percent } from "./blanks/percent.js";

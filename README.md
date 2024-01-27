@@ -9,6 +9,11 @@ const prompt = `Would a ${animal} make a good ${profession}?`;
 // "Would a rhinoceros make a good farmer?"
 ```
 
+```ts
+const prompt = "Write a poem." + creativity;
+// Write a poem. Consider mentioning running, ox, the color green, being surprised, parsley, submarine, electric kettle, rectangle, jazz music, or scientist.
+```
+
 ## Blanks
 
 Fill in the Blank provides blanks for common types of entities:
@@ -19,12 +24,14 @@ Fill in the Blank provides blanks for common types of entities:
 - `degree`: somewhat, very, etc.
 - `emotion`: happy, sad, etc.
 - `exercise`: running, skiing, etc.
+- `greeting`: hello, hi, etc.
 - `letter`: a, b, c, etc.
 - `musicGenre`: pop, rock, etc.
 - `percent`: 2%, 50%, 70%, etc.
 - `plant`: daisy, pine, tulip, etc.
 - `profession`: doctor, lawyer, etc.
 - `programmingLanguage`: Ruby, TypeScript, etc.
+- `shape`: circle, square, etc.
 - `vehicle`: bus, submarine, van, etc.
 
 Custom blanks can be implemented using the `blank` function:

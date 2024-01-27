@@ -10,6 +10,9 @@ import {
   shape,
   vehicle,
 } from "../index.js";
+import { wrap } from "../shared/wrap.js";
 
-export const creativity = () =>
-  `Consider mentioning whichever one (only one!) of these is most relevant: ${exercise}, ${animal}, ${color}, being ${emotion}, ${plant}, ${vehicle}, ${appliance}, ${shape}, ${musicGenre} music, or ${profession}.`;
+export const creativity = wrap(
+  () =>
+    ` Consider mentioning whichever one of these is most relevant: ${exercise}, ${animal}, the color ${color}, being ${emotion}, ${plant}, ${vehicle}, ${appliance}, ${shape}, ${musicGenre} music, or ${profession}.`
+);
