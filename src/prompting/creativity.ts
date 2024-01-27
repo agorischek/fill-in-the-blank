@@ -1,7 +1,6 @@
 import {
   animal,
   appliance,
-  color,
   emotion,
   exercise,
   musicGenre,
@@ -12,19 +11,28 @@ import {
 } from '../index.js';
 import { wrap } from '../shared/wrap.js';
 
-/** Provides a variety of topics for a model to consider when generating a response
- *
- * @remarks
- * The results of using `creativity` will vary greatly depending on your model, settings, and other prompt content.
- * Expect to iterate on your prompt and settings to get the desired results.
- *
+const kinds = [
+  exercise,
+  animal,
+  emotion,
+  plant,
+  vehicle,
+  appliance,
+  shape,
+  musicGenre,
+  profession,
+];
+
+/** Provides random inspiration for a model to consider when generating a response
  * @example
  * ```ts
  * const prompt = "Tell me a joke." + creativity;
- * // "Tell me a joke. Consider mentioning one of the following topics..."
+ * // "Tell me a joke. Use 'toaster' for creative inspiration."
  * ```
  */
-export const creativity = wrap(
-  () =>
-    ` Consider mentioning whichever **ONE** of these is most relevant: ${exercise}, ${animal}, the color ${color}, being ${emotion}, ${plant}, ${vehicle}, ${appliance}, ${shape}, ${musicGenre} music, or ${profession}.`,
-);
+export const creativity = wrap(() => {
+  const index = Math.floor(Math.random() * kinds.length);
+  const topic = kinds[index]();
+  const content = ` Use '${topic}' for creative inspiration.`;
+  return content;
+});
