@@ -3,10 +3,10 @@
 Add variation to your content through randomized placeholders — Great for
 inspiring creativity in language model prompts.
 
-[![Version](https://img.shields.io/npm/v/fill-in-the-blank)](https://www.npmjs.com/package/fill-in-the-blank "Version")
-[![Workflow](https://img.shields.io/github/actions/workflow/status/agorischek/fill-in-the-blank/.github/workflows/ci.yml)](https://github.com/agorischek/fill-in-the-blank/actions/workflows/.github/workflows/ci.yml "Workflow")
-[![License](https://img.shields.io/github/license/agorischek/fill-in-the-blank)](https://github.com/agorischek/fill-in-the-blank#readme/blob/main/LICENSE "License")
-[![Badges](https://img.shields.io/badge/badges-rolled-white)](https://github.com/agorischek/badge-roll "Badges")
+[![Version](https://img.shields.io/npm/v/fill-in-the-blank)](https://www.npmjs.com/package/fill-in-the-blank 'Version')
+[![Workflow](https://img.shields.io/github/actions/workflow/status/agorischek/fill-in-the-blank/.github/workflows/ci.yml)](https://github.com/agorischek/fill-in-the-blank/actions/workflows/.github/workflows/ci.yml 'Workflow')
+[![License](https://img.shields.io/github/license/agorischek/fill-in-the-blank)](https://github.com/agorischek/fill-in-the-blank#readme/blob/main/LICENSE 'License')
+[![Badges](https://img.shields.io/badge/badges-rolled-white)](https://github.com/agorischek/badge-roll 'Badges')
 
 ```ts
 const prompt = `Would a ${animal} make a good ${profession}?`;
@@ -56,10 +56,17 @@ To get more varied responses from a language model, you can include the
 const prompt = 'Write a poem.' + creativity;
 ```
 
-This will insert a variety of ideas that the model can use to guide its
-response. Note that the behavior will be highly dependent on your model,
-settings, and other prompt content, and getting desirable results will likely
-require iteration.
+This will insert a random topic that the model can use to guide its response.
+
+To generate multiple possible topics, use the `ideas` blank:
+
+```ts
+const prompt = `Write a story by combining two of these ideas: ${ideas}`;
+```
+
+Note that the behavior will be highly dependent on your model, settings, and
+other prompt content, and getting desirable results will likely require
+iteration.
 
 ## Q&A
 
