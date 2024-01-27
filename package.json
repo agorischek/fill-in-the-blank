@@ -6,8 +6,10 @@
   "type": "module",
   "scripts": {
     "build": "tsc --project tsconfig.build.json",
+    "lint": "eslint .",
     "start": "ts-node --esm ./dev/run.ts",
-    "test": "jest"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "author": "Alex Gorischek",
   "license": "MIT",
@@ -16,5 +18,12 @@
     "prettier": "^3.2.4",
     "typescript": "^5.3.3",
     "vitest": "^1.2.1"
+  },
+  "dependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@typescript-eslint/eslint-plugin": "^6.19.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-prettier": "^5.1.3"
   }
 }
