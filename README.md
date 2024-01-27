@@ -1,7 +1,12 @@
 # Fill in the Blank
 
-Add variation to your content through randomized placeholders. Great for
+Add variation to your content through randomized placeholders — Great for
 inspiring creativity in language model prompts.
+
+[![Version](https://img.shields.io/npm/v/fill-in-the-blank)](https://www.npmjs.com/package/fill-in-the-blank "Version")
+[![Workflow](https://img.shields.io/github/actions/workflow/status/agorischek/fill-in-the-blank/.github/workflows/ci.yml)](https://github.com/agorischek/fill-in-the-blank/actions/workflows/.github/workflows/ci.yml "Workflow")
+[![License](https://img.shields.io/github/license/agorischek/fill-in-the-blank)](https://github.com/agorischek/fill-in-the-blank#readme/blob/main/LICENSE "License")
+[![Badges](https://img.shields.io/badge/badges-rolled-white)](https://github.com/agorischek/badge-roll "Badges")
 
 ```ts
 const prompt = `Would a ${animal} make a good ${profession}?`;
@@ -19,7 +24,7 @@ const prompt = 'Write a poem.' + creativity;
 
 Fill in the Blank provides blanks for common types of entities:
 
-- `animal`: elephant, etc.
+- `animal`: elephant, tiger, etc.
 - `appliance`: refrigerator, toaster, etc.
 - `color`: red, blue, green, etc.
 - `degree`: somewhat, very, etc.
@@ -28,7 +33,7 @@ Fill in the Blank provides blanks for common types of entities:
 - `greeting`: hello, hi, etc.
 - `letter`: a, b, c, etc.
 - `musicGenre`: pop, rock, etc.
-- `percent`: 2%, 50%, 70%, etc.
+- `percent`: 2%, 50%, 73%, etc.
 - `plant`: daisy, pine, tulip, etc.
 - `profession`: doctor, lawyer, etc.
 - `programmingLanguage`: Ruby, TypeScript, etc.

@@ -1,5 +1,5 @@
-import { degrees } from "../content/degree.js";
-import { blank } from "../shared/blank.js";
+import { degrees } from '../content/degrees.js';
+import { blank } from '../shared/blank.js';
 
 /** A degree of intensity, such as "very"
  * @example
