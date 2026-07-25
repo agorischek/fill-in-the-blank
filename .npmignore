@@ -2,8 +2,7 @@ src
 dev
 coverage
 .env
-.eslintignore
-.eslintrc.cjs
+eslint.config.js
 .github
 .gitignore
 .markdownlint-cli2.yaml
