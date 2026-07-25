@@ -6,8 +6,12 @@ on:
   pull_request:
     branches: ['main']
 
+permissions:
+  contents: read
+
 jobs:
   build:
+    name: Verify (${{ matrix.node-version }})
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,13 +19,15 @@ jobs:
         node-version: [20.x, 22.x, 24.x]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - run: npm ci
+      - run: npm audit --audit-level=moderate
       - run: npm run lint
       - run: npm run build
-      - run: npm run test
+      - run: npm test
+      - run: npm pack --dry-run
