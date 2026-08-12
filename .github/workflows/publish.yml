@@ -1,26 +1,86 @@
 name: Publish
 
 on:
-  release:
-    types: [created]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Existing release tag to publish
+        required: true
+        type: string
 
 permissions:
-  contents: read
+  contents: write
+  id-token: write
+
+concurrency:
+  group: publish-${{ inputs.version }}
+  cancel-in-progress: false
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    environment: npm-publish
+    timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - name: Check out release tag
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
-          node-version: 24
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm audit --audit-level=moderate
-      - run: npm run test
-      - run: npm run build
-      - run: npm pack --dry-run
-      - run: npm publish
+          fetch-depth: 0
+          persist-credentials: false
+          ref: refs/tags/${{ inputs.version }}
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: '24'
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Use an OIDC-capable npm CLI
+        run: npm install --global npm@11.18.0
+
+      - name: Verify tag and package version
+        id: package
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          TAG: ${{ inputs.version }}
+        run: |
+          git show-ref --verify --quiet "refs/tags/$TAG"
+          test "$(git rev-parse "refs/tags/$TAG^{commit}")" = "$(git rev-parse HEAD)"
+          VERSION=$(node --print "require('./package.json').version")
+          test "$TAG" = "v$VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate package
+        run: |
+          npm audit --audit-level=moderate
+          npm run lint
+          npm run build
+          npm test
+          npm pack --dry-run --ignore-scripts
+
+      - name: Publish package
+        env:
+          VERSION: ${{ steps.package.outputs.version }}
+        run: |
+          if npm view "fill-in-the-blank@$VERSION" version >/dev/null 2>&1; then
+            echo "fill-in-the-blank@$VERSION is already published"
+          else
+            npm publish --provenance --access public
+          fi
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ inputs.version }}
+        run: |
+          if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" >/dev/null 2>release-error.log; then
+            exit 0
+          fi
+          if ! grep -q "HTTP 404" release-error.log; then
+            cat release-error.log >&2
+            exit 1
+          fi
+          gh release create "$TAG" --verify-tag --generate-notes --title "$TAG"
