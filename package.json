@@ -24,11 +24,11 @@
     "@eslint/js": "^10.0.1",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "badge-roll": "^0.1.0",
-    "eslint": "^10.8.0",
+    "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.9.6",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.71.0",
+    "typescript-eslint": "^8.72.2",
     "vitest": "^4.1.10"
   },
   "keywords": [
@@ -37,6 +37,8 @@
     "random"
   ],
   "overrides": {
+    "glob": "14.0.2",
+    "minimatch": "11.0.1",
     "yaml": "1.10.3"
   }
 }
